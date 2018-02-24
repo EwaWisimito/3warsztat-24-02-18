@@ -80,6 +80,20 @@
         )
     }
 
+    function startGame(){
+
+        gameIntervalId = setInterval(
+            function(){
+                mole.remove()
+                mole = makeMole()
+                reduceTime()
+
+         },
+         1000
+     )
+
+    }
+
     function init(){
         points = 0
         time = 10
@@ -88,17 +102,22 @@
         displayPoints(points)
         displayTime(time)
 
-        gameIntervalId = setInterval(
+        document.querySelector('.start-modal button')
+        addEventListener(
+            'click',
             function(){
-                mole.remove()
-                mole = makeMole()
-                reduceTime()
-
-            },
-            1000
+                document.querySelector('.start-modal')
+                .style.display = 'none'
+                startGame()
+            }
             
         )
+
+       
+
+            
     }
 
     init()
+
 })()

@@ -43,3 +43,29 @@ body{
     font-size: 3em;
     color: red;
 }
+
+.modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate( 50%, -50%);
+    background-color: lightgray;
+    padding: 20px;
+    text-align: center;
+    z-index: 99999;
+    max-width: 90vw;
+    font-family: 'Quantico', sans-serif;
+
+}
+
+.modal button{
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-family: 'Quantico', sans-serif;
+
+}
+.end-modal{
+    display: none;
+}
