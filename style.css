@@ -24,6 +24,7 @@ body{
     top: 0;
     font-size: 3em;
     color: white;
+    font-family: 'Luckiest Guy', cursive;
 }
 
  .time{
@@ -32,6 +33,7 @@ body{
     top: 0;
     font-size: 3em;
     color: white;
+    font-family: 'Luckiest Guy', cursive;
 }
 .messages{
     position: absolute;

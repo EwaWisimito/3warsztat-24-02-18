@@ -2,12 +2,20 @@
     var points 
     var time
     var mole
+    var gameIntervalId
 
     function addPoint(){
         points++
-        console.log('Dodano punkt!', points)
         displayPoints(points)
         
+    }
+
+    function reduceTime(){
+        time--
+        displayTime(time)
+        if(time === 0 ){
+            endGame()
+        }
     }
 
     function displayPoints(pointsParam){
@@ -44,6 +52,7 @@
             function(){
                 mole.remove()
                 addPoint()
+                flashBackground()
 
             }
         )
@@ -53,6 +62,24 @@
         return mole
     }
 
+    function endGame(){
+        clearInterval(gameIntervalId)
+        mole.remove()
+        alert('Game was ended!\n Your score was:' + points + ' !')
+        
+    }
+    
+    function flashBackground(){
+        var body = document.querySelector("body")
+        body.style.backgroundColor = 'red'
+        setTimeout(
+            function(){
+                body.style.backgroundColor = 'green'
+            },
+            100
+        )
+    }
+
     function init(){
         points = 0
         time = 10
@@ -60,6 +87,17 @@
 
         displayPoints(points)
         displayTime(time)
+
+        gameIntervalId = setInterval(
+            function(){
+                mole.remove()
+                mole = makeMole()
+                reduceTime()
+
+            },
+            1000
+            
+        )
     }
 
     init()
