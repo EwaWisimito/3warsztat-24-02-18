@@ -1,10 +1,16 @@
-var body = document.querySelector('body')
+(function(){
 
-console.log(body)
 
-body.addEventListener(
-    'click',
-    function(){
-        console.log('Klik!')
+    function makeMole(){
+        var mole = document.createElement('div')
+
+        mole.classList.add('mole')
+
+        mole.style.left = '100px'
+        mole.style.top = '100px'
+
+        document.querySelector('body').appendChild(mole)
     }
-)
+
+    makeMole()
+})()
