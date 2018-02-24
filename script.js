@@ -65,7 +65,20 @@
     function endGame(){
         clearInterval(gameIntervalId)
         mole.remove()
-        alert('Game was ended!\n Your score was:' + points + ' !')
+        
+        document.querySelector('.end-modal .score')
+        .innerText = points + ' punktów!'
+
+        document.querySelector('.end-modal')
+              .style.display = 'block'
+
+        document.querySelector('.end-modal button')    
+        addEventListener(
+            'click',
+            function(){
+                window.location = ''
+            }
+        )
         
     }
     
@@ -81,6 +94,7 @@
     }
 
     function startGame(){
+        mole = makeMole()
 
         gameIntervalId = setInterval(
             function(){
@@ -97,7 +111,7 @@
     function init(){
         points = 0
         time = 10
-        mole = makeMole()
+        mole = null
 
         displayPoints(points)
         displayTime(time)
